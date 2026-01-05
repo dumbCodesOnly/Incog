@@ -29,7 +29,7 @@ export function useAuth(options?: UseAuthOptions) {
       await logoutMutation.mutateAsync();
     } catch (error: any) {
       if (
-        error.name === 'TRPCClientError' &&
+        error.name === "TRPCClientError" &&
         error.data?.code === "UNAUTHORIZED"
       ) {
         return;
