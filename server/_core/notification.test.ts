@@ -76,7 +76,7 @@ describe("notifyOwner", () => {
     });
 
     it("should throw a TRPCError if forgeApiKey is not configured", async () => {
-        vi.mocked(ENV, true).forgeApiKey = undefined;
+      vi.mocked(ENV, true).forgeApiKey = undefined;
       const payload = { title: "Test Title", content: "Test Content" };
       await expect(notifyOwner(payload)).rejects.toThrow(
         new TRPCError({
@@ -103,7 +103,10 @@ describe("notifyOwner", () => {
             "content-type": "application/json",
             "connect-protocol-version": "1",
           },
-          body: JSON.stringify({ title: "Test Title", content: "Test Content" }),
+          body: JSON.stringify({
+            title: "Test Title",
+            content: "Test Content",
+          }),
         })
       );
     });
@@ -134,7 +137,10 @@ describe("notifyOwner", () => {
       expect(fetch).toHaveBeenCalledWith(
         expect.any(String),
         expect.objectContaining({
-          body: JSON.stringify({ title: "Test Title", content: "Test Content" }),
+          body: JSON.stringify({
+            title: "Test Title",
+            content: "Test Content",
+          }),
         })
       );
     });

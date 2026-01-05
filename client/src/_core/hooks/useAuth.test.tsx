@@ -137,9 +137,9 @@ describe("useAuth", () => {
 
   it("should handle UNAUTHORIZED error on logout", async () => {
     const error = {
-      name: 'TRPCClientError',
+      name: "TRPCClientError",
       data: {
-        code: 'UNAUTHORIZED',
+        code: "UNAUTHORIZED",
       },
     };
     const mutateAsync = vi.fn().mockRejectedValue(error);
